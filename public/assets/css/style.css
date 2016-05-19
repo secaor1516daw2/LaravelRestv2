@@ -1,0 +1,130 @@
+/*LAYOUT*/
+
+body {
+    padding-top: 50px;
+    background: url("../img/madera.jpg") fixed center top;
+}
+
+.wrapper {
+    margin: 0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.logo {
+    width: 350px;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.8);
+    width: 900px;
+    min-height: 527px;
+    margin: 20px auto;
+}
+.container{
+  width: 900px;
+}
+.table{
+    margin: 20px 0px;
+}
+
+/*END LAYOUT*/
+
+
+/*WELCOME*/
+
+h1 {
+    color: #FFF;
+    text-align: center;
+}
+
+.icon {
+    font-size: 150px;
+    color: #FFF;
+    margin: 45px 120px;
+    /*
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+*/
+}
+
+.square {
+    background-color: #000;
+    padding: 10px 10px 40px 10px;
+    margin: 90px 0px 0px 30px;
+    border: 5px dashed #FFF;
+}
+
+
+/*END WELCOME*/
+
+
+/*MESA*/
+
+.formulari {}
+
+
+/*
+.enlazado {
+    height: 100px;
+    width: 200px;
+    border: solid #f00;
+}
+*/
+.enlazado {
+    background-color: #000;
+    padding: 5px 5px 14px 5px;
+    margin: 30px 0px 0px 25px;
+    border: 5px dashed #FFF;
+}
+
+.enlazado h1{
+    font-size:15px;
+}
+.enlazado a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.enlazado a:link {
+    text-decoration: none;
+}
+
+
+/*END MESA*/
+
+
+
+#page-wrap {
+  width: 500px;
+  margin: 100px auto;
+}
+
+h1 {
+  font: 26px Georgia, Serif;
+  margin: 0 0 10px 0;
+}
+form {
+  margin: 50px 0 0 0;
+}
+
+.numbers-row input[type=text] {
+  width: 70px!important;
+  font: bold 20px Helvetica, sans-serif;
+  padding: 5px 0 0 0;
+  text-align: center;
+}
+form div {
+  overflow: hidden;
+  margin: 0 0 5px 1px;
+}
+
+.button {
+    font-size: 25px;
+    padding-left: 5px;
+}
+
