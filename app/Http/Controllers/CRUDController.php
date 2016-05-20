@@ -141,7 +141,7 @@ class CRUDController extends Controller {
 
         public function prueba()
     {
-        $plats = DB::table('plats')->distinct()->lists('tipus');
+        $plats = DB::table('plats')->distinct()->orderBy('tipus', 'asc')->lists('tipus');
 
         $id1 = DB::table('plats')->where('tipus', '=', 'AMANIDES')->lists('id');
         $nom1 = DB::table('plats')->where('tipus', '=', 'AMANIDES')->lists('nom');
@@ -161,7 +161,7 @@ class CRUDController extends Controller {
 
         $id4 = DB::table('plats')->where('tipus', '=', 'HAMBURGUESES')->lists('id');
         $nom4 = DB::table('plats')->where('tipus', '=', 'HAMBURGUESES')->lists('nom');
-        $descripcion4 = DB::table('plats')->where('tipus', '=', 'HAMBURGUESES')->lists('descripcio');
+        $descripcio4 = DB::table('plats')->where('tipus', '=', 'HAMBURGUESES')->lists('descripcio');
         $tipus4 = DB::table('plats')->where('tipus', '=', 'HAMBURGUESES')->lists('tipus');
         $preu4 = DB::table('plats')->where('tipus', '=', 'HAMBURGUESES')->lists('preu');
 

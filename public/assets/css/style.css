@@ -127,4 +127,20 @@ form div {
     font-size: 25px;
     padding-left: 5px;
 }
-
+/*JQUERY*/
+.amanides{
+    display:block;
+}
+.butifarres{
+    display:none;
+}
+.compartir{
+    display:none;
+}
+.hamburgueses{
+    display:none;
+}
+.sugerencies{
+    display:none;
+}
+/**/
