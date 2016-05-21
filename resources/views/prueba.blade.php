@@ -53,10 +53,10 @@ console.log(oID);
     if (oID == "suma") {
 var newVal = parseFloat(oldValue) + 1;
 } else {
-if (oldValue > 0) {
+if (oldValue > 1) {
 var newVal = parseFloat(oldValue) - 1;
 } else {
-newVal = 0;
+newVal = 1;
 }
 }
 $button.parent().find("input").val(newVal);
@@ -184,7 +184,7 @@ $button.parent().find("input").val(newVal);
     </div>
     <div class="container amanides">
         <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/pedir') }}">
+            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="nPlat">nº Plat:</label>
@@ -196,7 +196,7 @@ $button.parent().find("input").val(newVal);
                 </div>
                 <div class="form-group numbers-row">
                     <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="0">
+                    <input type="text" name="quantitat" class="form-control" value="1">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default" >Entrar</button>
@@ -208,7 +208,7 @@ $button.parent().find("input").val(newVal);
     </div>
     <div class="container butifarres">
         <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/pedir') }}">
+            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="nPlat">nº Plat:</label>
@@ -220,7 +220,7 @@ $button.parent().find("input").val(newVal);
                 </div>
                 <div class="form-group numbers-row">
                     <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="0">
+                    <input type="text" name="quantitat" class="form-control" value="1">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default" >Entrar</button>
@@ -232,7 +232,7 @@ $button.parent().find("input").val(newVal);
     </div>
     <div class="container compartir">
         <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/pedir') }}">
+            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="nPlat">nº Plat:</label>
@@ -244,7 +244,7 @@ $button.parent().find("input").val(newVal);
                 </div>
                 <div class="form-group numbers-row">
                     <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="0">
+                    <input type="text" name="quantitat" class="form-control" value="1">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default" >Entrar</button>
@@ -256,7 +256,7 @@ $button.parent().find("input").val(newVal);
     </div>
     <div class="container hamburgueses">
         <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/pedir') }}">
+            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="nPlat">nº Plat:</label>
@@ -268,7 +268,7 @@ $button.parent().find("input").val(newVal);
                 </div>
                 <div class="form-group numbers-row">
                     <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="0">
+                    <input type="text" name="quantitat" class="form-control" value="1">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default" >Entrar</button>
@@ -280,7 +280,7 @@ $button.parent().find("input").val(newVal);
     </div>
     <div class="container sugerencies">
         <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/pedir') }}">
+            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="nPlat">nº Plat:</label>
@@ -292,7 +292,7 @@ $button.parent().find("input").val(newVal);
                 </div>
                 <div class="form-group numbers-row">
                     <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="0">
+                    <input type="text" name="quantitat" class="form-control" value="1">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default" >Entrar</button>
@@ -302,5 +302,36 @@ $button.parent().find("input").val(newVal);
 
         </div>
     </div>
+
+<!--
+@foreach($nPlat as $plat)
+nº Plato:{{$plat}}
+@endforeach
+
+@foreach($quantitat as $q)
+Cantidad:{{$q}}
+@endforeach
+-->
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Quantitat</th>
+                    <th>nºPlat</th>
+                    <th>nom</th>
+                    <th>preu</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for ($i = 0; $i < count($nPlat); $i++) <tr>
+                    <td>{{$quantitat[$i]}}</td>
+                    <td>{{$nPlat[$i]}}</td>
+                    <td>{{DB::table('plats')->where('id', '=', $nPlat[$i])->value('nom')}}</td>
+                    <td>{{(DB::table('plats')->where('id', '=', $nPlat[$i])->value('preu'))*($quantitat[$i])}}</td>
+                    </tr>
+                    @endfor
+            </tbody>
+        </table>
+
 </div>
 @stop

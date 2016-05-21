@@ -120,27 +120,79 @@ class CRUDController extends Controller {
         return view('showPlatTaula',compact('noms','tipuss','preus','nTaula'));
     }
 
-    public function pedir(Request $request)
+//    public function pedir(Request $request)
+//    {
+//        if($request->session()->has('nPlat')){
+//            Session::put('p', array(Input::get('nPlat')));
+//            Session::put('q', array(Input::get('quantitat')));
+//            $nPlat[] = Input::get('nPlat');
+//            $quantitat[] = Input::get('quantitat');
+//        }else{
+//            $nPlat = Session::pull('p');
+//            $quantitat = Session::pull('q');
+//            $nPlat[] = Input::get('nPlat');
+//            $quantitat[] = Input::get('quantitat');
+//            Session::set('p', $nPlat);
+//            Session::set('q', $quantitat);
+//        }
+//        //$request->session()->flush();
+//        return view('pedido',compact('nPlat','quantitat'));
+//    }
+
+     public function pedir(Request $request)
     {
-        if($request->session()->has('nPlat')){
-            Session::put('p', array(Input::get('nPlat')));
-            Session::put('q', array(Input::get('quantitat')));
-            $nPlat[] = Input::get('nPlat');
-            $quantitat[] = Input::get('quantitat');
-        }else{
-            $nPlat = Session::pull('p');
-            $quantitat = Session::pull('q');
-            $nPlat[] = Input::get('nPlat');
-            $quantitat[] = Input::get('quantitat');
-            Session::set('p', $nPlat);
-            Session::set('q', $quantitat);
+        $nPlat = Session::get('p');
+        $quantitat = Session::get('q');
+         $data = Session::all();
+
+        return view('pedido',compact('data','nPlat','quantitat'));
+    }
+
+     public function borrarPedido($id)
+    {
+        $nPlat = Session::get('p');
+        $quantitat = Session::get('q');
+
+        //$id=0;
+
+        foreach ($nPlat as $index => $product) {
+            if ($index == $id) {
+                array_splice($nPlat, $index , 1);
+            }
         }
-//        $request->session()->flush();
+
+        foreach ($quantitat as $index => $product) {
+            if ($index == $id) {
+                array_splice($quantitat, $index , 1);
+            }
+        }
+         Session::put('p', $nPlat);
+         Session::put('q', $quantitat);
+
         return view('pedido',compact('nPlat','quantitat'));
     }
 
-        public function prueba()
+        public function prueba(Request $request)
     {
+        $nPlat[]=0;
+        $quantitat[]=0;
+
+        if($request->isMethod('post')){
+            if($request->session()->has('nPlat')){
+                Session::put('p', array(Input::get('nPlat')));
+                Session::put('q', array(Input::get('quantitat')));
+                $nPlat[] = Input::get('nPlat');
+                $quantitat[] = Input::get('quantitat');
+            }else{
+                $nPlat = Session::pull('p');
+                $quantitat = Session::pull('q');
+                $nPlat[] = Input::get('nPlat');
+                $quantitat[] = Input::get('quantitat');
+                Session::set('p', $nPlat);
+                Session::set('q', $quantitat);
+            }
+        }
+        //$request->session()->flush();
         $plats = DB::table('plats')->distinct()->orderBy('tipus', 'asc')->lists('tipus');
 
         $id1 = DB::table('plats')->where('tipus', '=', 'AMANIDES')->lists('id');
@@ -170,6 +222,8 @@ class CRUDController extends Controller {
         $tipus5 = DB::table('plats')->where('tipus', '=', 'SUGERENCIES')->lists('tipus');
         $preu5 = DB::table('plats')->where('tipus', '=', 'SUGERENCIES')->lists('preu');
 
-        return view('prueba',compact('plats','id1','nom1','descripcio1','tipus1','preu1','id2','nom2','tipus2','preu2','id3','nom3','tipus3','preu3','id4','nom4','descripcio4','tipus4','preu4','id5','nom5','tipus5','preu5'));
+//        $pNom = DB::table('plats')->where('id', '=', $nPlat)->lists('nom');
+
+        return view('prueba',compact('nPlat','quantitat','plats','id1','nom1','descripcio1','tipus1','preu1','id2','nom2','tipus2','preu2','id3','nom3','tipus3','preu3','id4','nom4','descripcio4','tipus4','preu4','id5','nom5','tipus5','preu5'));
     }
 }

@@ -14,6 +14,13 @@
 
 Route::get('/','WelcomeController@index');
 
+Route::get('home', 'HomeController@index');
+
+Route::controllers([
+    'auth'=>'Auth\AuthController',
+    'password' =>'Auth\PasswordController',
+]);
+
 //ruta para el formulario de crear plato
 Route::get('/platoForm', function () {
     $plats = DB::table('plats')->distinct()->lists('tipus');
@@ -35,11 +42,17 @@ Route::get('/mesa', function () {
     return view('mesa');
 });
 
-Route::get('/pedido', function () {
-    return view('pedido');
-});
+//Route::get('/pedido', function () {
+//    return view('pedido');
+//});
+
+Route::get('borrar/{id}','CRUDController@borrarPedido');
+
+Route::match(['get', 'post'], '/pedido', 'CRUDController@pedir');
 
 Route::match(['get', 'post'], '/pedir', 'CRUDController@pedir');
+
+//Route::match(['get', 'post'], '/borrar', 'CRUDController@borrarPedido');
 
 //Route::get('/prueba', function () {
 //    $plats = DB::table('plats')->distinct()->lists('tipus');
