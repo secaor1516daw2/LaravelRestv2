@@ -26,7 +26,7 @@ class CRUDController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		return view('principal');
 	}
 
     public function crear(Request $request)
@@ -111,33 +111,25 @@ class CRUDController extends Controller {
         return view('Sugerencies',compact('plats','ids','noms','tipuss','preus'));
     }
 
-        public function mesa(Request $request)
-    {
-        $nTaula = $request->input("taula");
-        $noms = DB::table('comanda')->where('taula', '=', $nTaula)->lists('nom');
-        $tipuss = DB::table('comanda')->where('taula', '=', $nTaula)->lists('tipus');
-        $preus = DB::table('comanda')->where('taula', '=', $nTaula )->lists('preu');
-        return view('showPlatTaula',compact('noms','tipuss','preus','nTaula'));
-    }
-
-//    public function pedir(Request $request)
+//        public function mesa(Request $request)
 //    {
-//        if($request->session()->has('nPlat')){
-//            Session::put('p', array(Input::get('nPlat')));
-//            Session::put('q', array(Input::get('quantitat')));
-//            $nPlat[] = Input::get('nPlat');
-//            $quantitat[] = Input::get('quantitat');
-//        }else{
-//            $nPlat = Session::pull('p');
-//            $quantitat = Session::pull('q');
-//            $nPlat[] = Input::get('nPlat');
-//            $quantitat[] = Input::get('quantitat');
-//            Session::set('p', $nPlat);
-//            Session::set('q', $quantitat);
-//        }
-//        //$request->session()->flush();
-//        return view('pedido',compact('nPlat','quantitat'));
+//        $nTaula = $request->input("taula");
+//
+//        $quantitat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('quantitat');
+//        $nPlat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('nPlat');
+//        $noms = DB::table('comanda')->where('taula', '=', $nTaula)->lists('nom');
+//        return view('showPlatTaula',compact('noms','quantitat','nPlat','nTaula'));
 //    }
+
+    public function mesa($i)
+    {
+        $nTaula = $i;
+
+        $quantitat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('quantitat');
+        $nPlat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('nPlat');
+        $noms = DB::table('comanda')->where('taula', '=', $nTaula)->lists('nom');
+        return view('showPlatTaula',compact('noms','quantitat','nPlat','nTaula'));
+    }
 
      public function pedir(Request $request)
     {
@@ -174,8 +166,8 @@ class CRUDController extends Controller {
 
         public function prueba(Request $request)
     {
-        $nPlat[]=0;
-        $quantitat[]=0;
+        $nPlat[]=null;
+        $quantitat[]=null;
 
         if($request->isMethod('post')){
             if($request->session()->has('nPlat')){
@@ -191,6 +183,14 @@ class CRUDController extends Controller {
                 Session::set('p', $nPlat);
                 Session::set('q', $quantitat);
             }
+        }else if(Session::has('p')){
+        $nPlat = Session::get('p');
+        $quantitat = Session::get('q');
+
+
+        }else if(count($nPlat)==0){
+        $nPlat[]=0;
+        $quantitat[]=0;
         }
         //$request->session()->flush();
         $plats = DB::table('plats')->distinct()->orderBy('tipus', 'asc')->lists('tipus');
@@ -221,9 +221,26 @@ class CRUDController extends Controller {
         $nom5 = DB::table('plats')->where('tipus', '=', 'SUGERENCIES')->lists('nom');
         $tipus5 = DB::table('plats')->where('tipus', '=', 'SUGERENCIES')->lists('tipus');
         $preu5 = DB::table('plats')->where('tipus', '=', 'SUGERENCIES')->lists('preu');
-
-//        $pNom = DB::table('plats')->where('id', '=', $nPlat)->lists('nom');
-
         return view('prueba',compact('nPlat','quantitat','plats','id1','nom1','descripcio1','tipus1','preu1','id2','nom2','tipus2','preu2','id3','nom3','tipus3','preu3','id4','nom4','descripcio4','tipus4','preu4','id5','nom5','tipus5','preu5'));
+    }
+
+        public function confirmar()
+    {
+//            $i=0;
+            $taula = 2;
+            $quantitat = Session::get('p');
+            $nPlat = Session::get('q');
+//            $nom = DB::table('plats')->where('id', '=', $nPlat[$i])->value('nom');
+
+            for($i = 0;$i < count($nPlat);$i++){
+                DB::table('comanda')->insert([
+                    'taula' => $taula,
+                    'quantitat' => $quantitat[$i],
+                    'nPlat' => $nPlat[$i],
+                    'nom' => DB::table('plats')->where('id', '=', $nPlat[$i])->value('nom')
+                ]);
+            }
+            Session::flush();
+            return view('confirm');
     }
 }

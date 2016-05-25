@@ -1,5 +1,5 @@
-@extends('layouts/main') @section('wrapper')
+@extends('layouts.app') @section('content')
 
 {{ $nom or 'Default' }}
 
-@stop
+@endsection

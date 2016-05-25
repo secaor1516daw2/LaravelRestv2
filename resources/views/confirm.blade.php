@@ -28,9 +28,6 @@
 
 <body>
     <script type="text/javascript">
-        function goBack() {
-            window.history.back();
-        }
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -40,24 +37,31 @@
     <header>
         <div class="lock">
             <a href="{{ url('/home') }}">
-            <i class="fa fa-lock" aria-hidden="true"></i>
+                <i class="fa fa-lock" aria-hidden="true"></i>
             </a>
         </div>
+        <div class="wrapper center">
+            <img class="logo" src="assets/img/logo.png" alt="Charlotte's Grill" />
+        </div>
+    </header>
+    <div class="contenido">
         <div class="container">
             <div class="row">
-                <div class="col-sm-3 col-sm-offset-1">
-                    <button type="button" class="btn btn-default boto" onclick="goBack()">
-                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                    </button>
+                <div class="col-md-9 col-md-offset-2 text2">
+                    <h1>ESTAMOS REALIZANDO SU PEDIDO</h1>
                 </div>
-                <div class="col-sm-5">
-                    <img class="logo" src="../assets/img/logo.png" alt="Charlotte's Grill" />
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-4">
+                    <img class="cook" src="assets/img/cocinero.gif" alt="Charlotte's Grill" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-4">
+                     <input type="button" class="btn btn-primary but" onclick=" location.href='{{ url('/') }}' " value="Tornar a l'Inici" name="boton"/>
                 </div>
             </div>
         </div>
-    </header>
-    <div class="content">
-        @yield('wrapper')
     </div>
 
     <!-- /.container -->
@@ -71,8 +75,8 @@
         window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
     </script>
     <script>
-        jQuery(document).ready(function () {
-            @yield('postJquery');
+        jQuery(document).ready(function () {@
+            yield('postJquery');
         });
     </script>
     <script src="../../dist/js/bootstrap.min.js"></script>

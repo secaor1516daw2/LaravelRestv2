@@ -17,18 +17,39 @@ body {
     width: 350px;
 }
 
+.lock {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    background: rgba(0, 0, 0, .5);
+    padding: 1px 7px 3px 7px;
+    border-radius: 20px;
+}
+
+.lock i {
+    color: #FFF;
+}
+
 .content {
     background: rgba(255, 255, 255, 0.8);
     width: 900px;
     min-height: 527px;
     margin: 20px auto;
 }
-.container{
-  width: 900px;
+
+.container {
+    width: 900px;
 }
-.table{
+
+.table {
     margin: 20px 0px;
 }
+
+.tabla {
+    margin: 20px 20px;
+    width: 830px;
+}
+
 
 /*END LAYOUT*/
 
@@ -41,21 +62,36 @@ h1 {
 }
 
 .icon {
-    font-size: 150px;
+    font-size: 135px;
     color: #FFF;
     margin: 45px 120px;
-    /*
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-*/
+}
+
+.text h1 {
+    color: #000;
+    font-weight: bolder;
+    font-family: Lobster;
+    text-shadow: -2px -2px 1px #10100F, 2px 2px 0px #505055;
+}
+
+.icon1 {
+    font-size: 145px;
+    color: #FFF;
+    margin: 40px 100px;
 }
 
 .square {
     background-color: #000;
-    padding: 10px 10px 40px 10px;
-    margin: 90px 0px 0px 30px;
-    border: 5px dashed #FFF;
+    padding: 10px 10px 10px 10px;
+    margin: 30px 0 0 50px;
+}
+
+.int {
+    border: 5px solid #FFF;
+}
+
+.int a:link {
+    text-decoration: none;
 }
 
 
@@ -74,6 +110,7 @@ h1 {
     border: solid #f00;
 }
 */
+
 .enlazado {
     background-color: #000;
     padding: 5px 5px 14px 5px;
@@ -81,9 +118,10 @@ h1 {
     border: 5px dashed #FFF;
 }
 
-.enlazado h1{
-    font-size:15px;
+.enlazado h1 {
+    font-size: 15px;
 }
+
 .enlazado a {
     display: block;
     width: 100%;
@@ -97,50 +135,101 @@ h1 {
 
 /*END MESA*/
 
-
-
 #page-wrap {
-  width: 500px;
-  margin: 100px auto;
+    width: 500px;
+    margin: 100px auto;
 }
 
+
+/*
 h1 {
   font: 26px Georgia, Serif;
   margin: 0 0 10px 0;
 }
+*/
+
+
+/*
 form {
   margin: 50px 0 0 0;
 }
+*/
 
 .numbers-row input[type=text] {
-  width: 70px!important;
-  font: bold 20px Helvetica, sans-serif;
-  padding: 5px 0 0 0;
-  text-align: center;
+    width: 70px!important;
+    font: bold 20px Helvetica, sans-serif;
+    padding: 5px 0 0 0;
+    text-align: center;
 }
+
 form div {
-  overflow: hidden;
-  margin: 0 0 5px 1px;
+    overflow: hidden;
+    margin: 0 0 5px 1px;
 }
 
 .button {
     font-size: 25px;
     padding-left: 5px;
 }
+
+
 /*JQUERY*/
-.amanides{
-    display:block;
+
+.amanides {
+    display: block;
 }
-.butifarres{
-    display:none;
+
+.butifarres {
+    display: none;
 }
-.compartir{
-    display:none;
+
+.compartir {
+    display: none;
 }
-.hamburgueses{
-    display:none;
+
+.hamburgueses {
+    display: none;
 }
-.sugerencies{
-    display:none;
+
+.sugerencies {
+    display: none;
 }
+
+
 /**/
+
+
+/*CONFIRMAR COMANDA*/
+
+.confirmar {
+    margin-left: 10px;
+}
+
+.lab label {
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+.text2 h1 {
+    color: #000;
+    font-weight: bolder;
+    font-family: Lobster;
+    margin-right: 167px;
+    text-shadow: -2px -2px 1px #10100F, 2px 2px 0px #505055;
+}
+
+.contenido{
+    background:#FFF;
+    width: 900px;
+    min-height: 527px;
+    margin: 20px auto;
+}
+
+.but{
+    margin-left: 30px;
+
+}
+
+.boto{
+    margin-top: 40px;
+}

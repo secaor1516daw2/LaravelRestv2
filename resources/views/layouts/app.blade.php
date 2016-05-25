@@ -81,32 +81,11 @@
     </nav>
     <header>
         <div class="wrapper center">
-            <img class="logo" src="../assets/img/logo.png" alt="Charlotte's Grill" />
+            <img class="logo" src="assets/img/logo.png" alt="Charlotte's Grill" />
         </div>
     </header>
     <div class="content">
-        <div class="container">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Taula</th>
-                <th>Quantitat</th>
-                <th>nº Plat</th>
-                <th>Nom</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for ($i = 0; $i < count($noms); $i++)
-              <tr>
-                <td>{{$nTaula}}</td>
-                <td>{{$quantitat[$i]}}</td>
-                <td>{{$nPlat[$i]}}</td>
-                <td>{{$noms[$i]}}</td>
-            </tr>
-            @endfor
-        </tbody>
-    </table>
-</div>
+        @yield('content')
     </div>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>

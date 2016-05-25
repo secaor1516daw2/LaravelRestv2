@@ -12,9 +12,7 @@
 */
 
 
-Route::get('/','WelcomeController@index');
-
-Route::get('home', 'HomeController@index');
+Route::get('/principal', 'CRUDController@index');
 
 Route::controllers([
     'auth'=>'Auth\AuthController',
@@ -39,7 +37,8 @@ Route::get('/crearPlato', function () {
 });
 
 Route::get('/mesa', function () {
-    return view('mesa');
+    $mesas = DB::table('comanda')->distinct()->orderBy('taula', 'asc')->lists('taula');
+    return view('mesa',compact('mesas'));
 });
 
 //Route::get('/pedido', function () {
@@ -51,6 +50,8 @@ Route::get('borrar/{id}','CRUDController@borrarPedido');
 Route::match(['get', 'post'], '/pedido', 'CRUDController@pedir');
 
 Route::match(['get', 'post'], '/pedir', 'CRUDController@pedir');
+
+Route::match(['get', 'post'], '/confirmar', 'CRUDController@confirmar');
 
 //Route::match(['get', 'post'], '/borrar', 'CRUDController@borrarPedido');
 
@@ -81,11 +82,17 @@ Route::match(['get', 'post'], '/hamburgueses', 'CRUDController@hamburgueses');
 Route::match(['get', 'post'], '/sugerencies', 'CRUDController@sugerencies');
 
 //ruta de leer platos de bbdd filtrados por numero de mesa
-Route::match(['get', 'post'], '/showPlatTaula', 'CRUDController@mesa');
+Route::match(['get', 'post'], '/showPlatTaula/{i}', 'CRUDController@mesa');
 
 
 //ruta de pruebas
 Route::get('/pruebasPlatos', function(){
     $plats = DB::table('plats')->distinct()->lists('tipus');
     dd($plats);
+});
+
+Route::group(['middleware'=>'web'], function() {
+Route::auth();
+Route::get('/','WelcomeController@index');
+Route::get('/home', 'HomeController@index');
 });

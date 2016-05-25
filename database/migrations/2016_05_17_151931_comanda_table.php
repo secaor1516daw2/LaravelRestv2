@@ -15,11 +15,9 @@ class ComandaTable extends Migration
         Schema::create('comanda', function (Blueprint $table) {
             $table->increments('id')->primary();
             $table->integer('taula');
-            $table->string('client',50);
-            $table->string('nom',50);
             $table->integer('quantitat');
-            $table->string('tipus',20);
-            $table->float('preu');
+            $table->integer('nPlat');
+            $table->string('nom',50);
             $table->timestamps();
         });
     }

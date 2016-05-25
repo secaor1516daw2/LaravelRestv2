@@ -182,137 +182,155 @@ $button.parent().find("input").val(newVal);
             </tbody>
         </table>
     </div>
-    <div class="container amanides">
-        <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="nPlat">nº Plat:</label>
-                    <select name="nPlat" class="form-control" id="nPlat">
-                        @foreach($id1 as $id)
-                        <option>{{$id}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group numbers-row">
-                    <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="1">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default" >Entrar</button>
-                    <input type="button" class="btn btn-default" onclick=" location.href='{{ url('/pedido') }}' " value="Ver Pedido" name="boton" />
-                </div>
-            </form>
+<div class="container amanides">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-inline" method="post" action="{{ url('/prueba') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group numbers-row">
+                            <label for="quantitat">Quantitat:</label>
+                            <input type="text" name="quantitat" class="form-control" value="1">
+                        </div>
+                        <div class="form-group lab">
+                            <label for="nPlat">nº Plat:</label>
+                            <select name="nPlat" class="form-control" id="nPlat">
+                                @foreach($id1 as $id)
+                                <option>{{$id}}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">Demanar</button>
+                            <input type="button" class="btn btn-primary" onclick=" location.href='{{ url('/pedido') }}' " value="Veure/Editar Comanda" name="boton" />
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="container butifarres">
-        <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="nPlat">nº Plat:</label>
-                    <select name="nPlat" class="form-control" id="nPlat">
-                        @foreach($id2 as $id)
-                        <option>{{$id}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group numbers-row">
-                    <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="1">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default" >Entrar</button>
-                    <input type="button" class="btn btn-default" onclick=" location.href='{{ url('/pedido') }}' " value="Ver Pedido" name="boton" />
-                </div>
-            </form>
+</div>
+<div class="container butifarres">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-inline" method="post" action="{{ url('/prueba') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group numbers-row">
+                            <label for="quantitat">Quantitat:</label>
+                            <input type="text" name="quantitat" class="form-control" value="1">
+                        </div>
+                        <div class="form-group lab">
+                            <label for="nPlat">nº Plat:</label>
+                            <select name="nPlat" class="form-control" id="nPlat">
+                                @foreach($id2 as $id)
+                                <option>{{$id}}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">Demanar</button>
+                            <input type="button" class="btn btn-primary" onclick=" location.href='{{ url('/pedido') }}' " value="Veure/Editar Comanda" name="boton" />
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="container compartir">
-        <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="nPlat">nº Plat:</label>
-                    <select name="nPlat" class="form-control" id="nPlat">
-                        @foreach($id3 as $id)
-                        <option>{{$id}}</option>
-                        @endforeach
-                    </select>
+</div>
+<div class="container compartir">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-inline" method="post" action="{{ url('/prueba') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group numbers-row">
+                            <label for="quantitat">Quantitat:</label>
+                            <input type="text" name="quantitat" class="form-control" value="1">
+                        </div>
+                        <div class="form-group lab">
+                            <label for="nPlat">nº Plat:</label>
+                            <select name="nPlat" class="form-control" id="nPlat">
+                                @foreach($id3 as $id)
+                                <option>{{$id}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">Demanar</button>
+                            <input type="button" class="btn btn-primary" onclick=" location.href='{{ url('/pedido') }}' " value="Veure/Editar Comanda" name="boton" />
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group numbers-row">
-                    <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="1">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default" >Entrar</button>
-                    <input type="button" class="btn btn-default" onclick=" location.href='{{ url('/pedido') }}' " value="Ver Pedido" name="boton" />
-                </div>
-            </form>
-
+            </div>
         </div>
     </div>
-    <div class="container hamburgueses">
-        <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="nPlat">nº Plat:</label>
-                    <select name="nPlat" class="form-control" id="nPlat">
-                        @foreach($id4 as $id)
-                        <option>{{$id}}</option>
-                        @endforeach
-                    </select>
+</div>
+<div class="container hamburgueses">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-inline" method="post" action="{{ url('/prueba') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group lab">
+                            <label for="nPlat">nº Plat:</label>
+                            <select name="nPlat" class="form-control" id="nPlat">
+                                @foreach($id4 as $id)
+                                <option>{{$id}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group numbers-row">
+                            <label for="quantitat">Quantitat:</label>
+                            <input type="text" name="quantitat" class="form-control" value="1">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">Demanar</button>
+                            <input type="button" class="btn btn-primary" onclick=" location.href='{{ url('/pedido') }}' " value="Veure/Editar Comanda" name="boton" />
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group numbers-row">
-                    <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="1">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default" >Entrar</button>
-                    <input type="button" class="btn btn-default" onclick=" location.href='{{ url('/pedido') }}' " value="Ver Pedido" name="boton" />
-                </div>
-            </form>
-
+            </div>
         </div>
     </div>
-    <div class="container sugerencies">
-        <div class="row">
-            <form class="form-inline" method="post" action="{{ url('/prueba') }}">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="nPlat">nº Plat:</label>
-                    <select name="nPlat" class="form-control" id="nPlat">
-                        @foreach($id5 as $id)
-                        <option>{{$id}}</option>
-                        @endforeach
-                    </select>
+</div>
+<div class="container sugerencies">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-inline" method="post" action="{{ url('/prueba') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group numbers-row">
+                            <label for="quantitat">Quantitat:</label>
+                            <input type="text" name="quantitat" class="form-control" value="1">
+                        </div>
+                        <div class="form-group lab">
+                            <label for="nPlat">nº Plat:</label>
+                            <select name="nPlat" class="form-control" id="nPlat">
+                                @foreach($id5 as $id)
+                                <option>{{$id}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">Demanar</button>
+                            <input type="button" class="btn btn-primary" onclick=" location.href='{{ url('/pedido') }}' " value="Veure/Editar Comanda" name="boton" />
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group numbers-row">
-                    <label for="quantitat">Quantitat:</label>
-                    <input type="text" name="quantitat" class="form-control" value="1">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default" >Entrar</button>
-                    <input type="button" class="btn btn-default" onclick=" location.href='{{ url('/pedido') }}' " value="Ver Pedido" name="boton" />
-                </div>
-            </form>
-
+            </div>
         </div>
     </div>
+</div>
 
-<!--
-@foreach($nPlat as $plat)
-nº Plato:{{$plat}}
-@endforeach
-
-@foreach($quantitat as $q)
-Cantidad:{{$q}}
-@endforeach
--->
-
+        @if($nPlat[0] != 0)
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -332,6 +350,6 @@ Cantidad:{{$q}}
                     @endfor
             </tbody>
         </table>
-
+        @endif
 </div>
 @stop
