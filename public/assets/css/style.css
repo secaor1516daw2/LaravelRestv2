@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Respective";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../font/Respective.ttf") format("truetype");
+}
 /*LAYOUT*/
 
 body {
@@ -57,6 +63,7 @@ body {
 /*WELCOME*/
 
 h1 {
+/*    font-family: Respective;*/
     color: #FFF;
     text-align: center;
 }

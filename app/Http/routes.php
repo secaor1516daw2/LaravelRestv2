@@ -82,13 +82,20 @@ Route::match(['get', 'post'], '/hamburgueses', 'CRUDController@hamburgueses');
 Route::match(['get', 'post'], '/sugerencies', 'CRUDController@sugerencies');
 
 //ruta de leer platos de bbdd filtrados por numero de mesa
-Route::match(['get', 'post'], '/showPlatTaula/{i}', 'CRUDController@mesa');
-
+Route::match(['get', 'post'], '/showPlatTaula/{i}', 'CRUDController@taula');
+//ruta que genera la cuenta
+Route::match(['get', 'post'], '/showCuenta/{i}', 'CRUDController@cuenta');
 
 //ruta de pruebas
 Route::get('/pruebasPlatos', function(){
     $plats = DB::table('plats')->distinct()->lists('tipus');
     dd($plats);
+});
+
+
+Route::get('/generarCuenta', function(){
+    $mesas = DB::table('comanda')->distinct()->orderBy('taula', 'asc')->lists('taula');
+    return view('generarCuenta',compact('mesas'));
 });
 
 Route::group(['middleware'=>'web'], function() {

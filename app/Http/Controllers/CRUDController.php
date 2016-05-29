@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DB;
 use Session;
+use Carbon\Carbon;
 
 class CRUDController extends Controller {
 
@@ -46,8 +47,12 @@ class CRUDController extends Controller {
     public function borrar(Request $request)
     {
         $nom = $request->input("nom");
+        $noms = DB::table('plats')->where('nom', '=', $nom)->value('nom');
+        $desc = DB::table('plats')->where('nom', '=', $nom)->value('descripcio');
+        $tip = DB::table('plats')->where('nom', '=', $nom)->value('tipus');
+        $preu = DB::table('plats')->where('nom', '=', $nom)->value('preu');
         DB::table('plats')->where('nom', '=', $nom)->delete();
-        return view('deletePlato',compact('nom'));
+        return view('deletePlato',compact('nom','noms','desc','tip','preu'));
     }
 
     public function leer()
@@ -111,17 +116,7 @@ class CRUDController extends Controller {
         return view('Sugerencies',compact('plats','ids','noms','tipuss','preus'));
     }
 
-//        public function mesa(Request $request)
-//    {
-//        $nTaula = $request->input("taula");
-//
-//        $quantitat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('quantitat');
-//        $nPlat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('nPlat');
-//        $noms = DB::table('comanda')->where('taula', '=', $nTaula)->lists('nom');
-//        return view('showPlatTaula',compact('noms','quantitat','nPlat','nTaula'));
-//    }
-
-    public function mesa($i)
+    public function taula($i)
     {
         $nTaula = $i;
 
@@ -129,6 +124,27 @@ class CRUDController extends Controller {
         $nPlat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('nPlat');
         $noms = DB::table('comanda')->where('taula', '=', $nTaula)->lists('nom');
         return view('showPlatTaula',compact('noms','quantitat','nPlat','nTaula'));
+    }
+
+    public function cuenta($i)
+    {
+        $date = Carbon::now();
+        $data = $date->format('d-m-Y');
+        $hora = $date->toTimeString();
+        $nTaula = $i;
+        $total=0;
+
+        $quantitat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('quantitat');
+        $nPlat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('nPlat');
+        $noms = DB::table('comanda')->where('taula', '=', $nTaula)->lists('nom');
+
+        for($i = 0;$i < count($nPlat);$i++){
+        $import[$i]=(DB::table('plats')->where('id', '=', $nPlat[$i])->value('preu'))*($quantitat[$i]);
+        $preus[$i]=DB::table('plats')->where('id', '=', $nPlat[$i])->value('preu');
+        $total= $total + $import[$i];
+        }
+
+        return view('cuenta',compact('nPlat','quantitat','noms','nTaula','import','preus','total','data','hora'));
     }
 
      public function pedir(Request $request)

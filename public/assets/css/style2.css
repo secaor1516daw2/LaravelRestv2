@@ -1,3 +1,21 @@
+
+.mtop20{
+    margin-top: 20px;
+}
+
+.msg{
+    font-size:15px;
+}
+
+.msg i{
+    font-size: 20px;
+    margin-right: 7px;
+}
+
+.msg strong{
+    font-size: 22px;
+}
+
 .wrapper {
     margin: 0 auto;
 }
@@ -28,15 +46,21 @@
 }
 
 .icon1 {
-    font-size: 145px;
+    font-size: 130px;
     color: #FFF;
-    margin: 40px 100px;
+    margin: 10px 110px;
 }
 
 .square {
     background-color: #000;
     padding: 10px 10px 10px 10px;
-    margin: 30px 0 0 50px;
+    margin: 15px 0 10px 75px;
+}
+
+.square:nth-child(1) {
+    background-color: #000;
+    padding: 10px 10px 10px 10px;
+    margin: 15px 0 10px 50px;
 }
 
 .int{
@@ -47,15 +71,47 @@
     text-decoration: none;
 }
 
+.int a h1{
+    font-size: 25px;
+}
 h1 {
     color: #FFF;
     text-align: center;
 }
 
 .dashed{
-    border: 1px dashed #FFF;
+    border: 3px solid #FFF;
 }
 
 .dashed a:link {
     text-decoration: none;
+}
+
+.circulo {
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     background: #000;
+     margin-top: 20px;
+     border: 3px dashed #FFF;
+}
+
+.circulo:nth-child(1){
+    margin-left: 45px;
+}
+
+.circulo2 {
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     background: #000;
+     border: 3px dashed #FFF;
+}
+
+.circulo2:nth-child(1){
+    margin-left: 45px;
+}
+
+.espai{
+    margin-top: 35px;
 }

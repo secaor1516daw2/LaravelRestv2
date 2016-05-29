@@ -14,7 +14,7 @@
         @for($i=1; $i < 5; $i ++)
             @if($i <= count($mesas))
             <div class="col-sm-2 square dashed">
-                <a href={{ url('/showPlatTaula/'.$i) }}>
+                <a href={{ url('/showCuenta/'.$i) }}>
                     <h1>{{$i}}</h1>
                 </a>
                 </div>
@@ -50,7 +50,7 @@
         @for($i=5; $i < 9;$i ++)
             @if($i <= count($mesas))
             <div class="col-sm-2 square dashed">
-                <a href={{ url('/showPlatTaula/'.$i) }}>
+                <a href={{ url('/showCuenta/'.$i) }}>
                     <h1>{{$i}}</h1>
                 </a>
                 </div>

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-5 square">
             <div class="int">
-                <a href="{{ url('/prueba') }}"><h1>CARTA</h1>
+                <a href="{{ url('/amanides') }}"><h1>CARTA</h1>
                 <i class="fa fa-book icon1" aria-hidden="true"></i>
                 </a>
             </div>

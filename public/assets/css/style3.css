@@ -1,0 +1,36 @@
+.logo {
+    width: 350px;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.8);
+    width: 900px;
+    min-height: 527px;
+    margin: 20px auto;
+}
+
+.container {
+    width: 900px;
+}
+
+body {
+    padding-top: 50px;
+    background: url("../img/madera.jpg") fixed center top;
+}
+
+.log{
+    margin-top: 20px;
+    padding-left: 45px;
+}
+
+.table th{
+    font-size: 25px;
+}
+
+.table tr{
+    font-size: 20px;
+}
+
+.total{
+    margin-bottom: 15px;
+}
