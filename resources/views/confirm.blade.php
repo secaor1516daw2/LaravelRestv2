@@ -47,17 +47,17 @@
     <div class="contenido">
         <div class="container">
             <div class="row">
-                <div class="col-md-9 col-md-offset-2 text2">
+                <div class="col-sm-9 col-sm-offset-2 text2">
                     <h1>ESTAMOS REALIZANDO SU PEDIDO</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 col-md-offset-4">
+                <div class="col-sm-3 col-sm-offset-4">
                     <img class="cook" src="assets/img/cocinero.gif" alt="Charlotte's Grill" />
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 col-md-offset-4">
+                <div class="col-sm-3 col-sm-offset-4">
                      <input type="button" class="btn btn-primary but" onclick=" location.href='{{ url('/') }}' " value="Tornar a l'Inici" name="boton"/>
                 </div>
             </div>

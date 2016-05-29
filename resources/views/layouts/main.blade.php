@@ -39,18 +39,13 @@
     </script>
     <header>
         <div class="lock">
-            <a href="{{ url('/home') }}">
+            <a href="{{ url('/login') }}">
             <i class="fa fa-lock" aria-hidden="true"></i>
             </a>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-3 col-sm-offset-1">
-                    <button type="button" class="btn btn-default boto" onclick="goBack()">
-                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <div class="col-sm-5">
+                <div class="col-sm-5 col-sm-offset-4">
                     <img class="logo" src="../assets/img/logo.png" alt="Charlotte's Grill" />
                 </div>
             </div>

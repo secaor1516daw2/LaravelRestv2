@@ -86,6 +86,7 @@ Route::match(['get', 'post'], '/showPlatTaula/{i}', 'CRUDController@taula');
 //ruta que genera la cuenta
 Route::match(['get', 'post'], '/showCuenta/{i}', 'CRUDController@cuenta');
 
+Route::match(['get', 'post'], '/pagada', 'CRUDController@borrarCuenta');
 //ruta de pruebas
 Route::get('/pruebasPlatos', function(){
     $plats = DB::table('plats')->distinct()->lists('tipus');

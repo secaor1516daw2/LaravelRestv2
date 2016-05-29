@@ -1,4 +1,10 @@
 @extends('layouts.app') @section('content')
+<button type="button" class="btn btn-default boto1" onclick="location.href='/home'">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn btn-default boto2" onclick="location.href='/home'">
+    <i class="fa fa-home" aria-hidden="true"></i>
+</button>
 <div class="container">
     <div class="row">
         <div class="col-md-9 col-md-offset-2">

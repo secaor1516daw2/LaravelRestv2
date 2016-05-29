@@ -115,3 +115,22 @@ h1 {
 .espai{
     margin-top: 35px;
 }
+
+.content .boto1{
+    position: absolute;
+    top: 115px;
+    left: 170px;
+}
+
+.content .boto1 i{
+    font-size: 22px;
+}
+
+.content .boto2{
+    position: absolute;
+    top: 115px;
+    left: 220px;
+}
+.content .boto2 i{
+    font-size: 22px;
+}

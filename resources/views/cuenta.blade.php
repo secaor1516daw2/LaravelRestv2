@@ -1,5 +1,11 @@
 @extends('layouts.factura') @section('wrapper')
-
+<button type="button" class="btn btn-default boto1" onclick="location.href='/generarCuenta'">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn btn-default boto2" onclick="location.href='/home'">
+    <i class="fa fa-home" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn btn-success boto3" onclick="location.href='/pagada'">Pagada</button>
 <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
         <div class="dir">

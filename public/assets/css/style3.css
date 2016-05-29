@@ -34,3 +34,27 @@ body {
 .total{
     margin-bottom: 15px;
 }
+.boto1{
+    position: absolute;
+    top: 20px;
+    left: 60px;
+}
+
+.boto1 i{
+    font-size: 22px;
+}
+
+.boto2{
+    position: absolute;
+    top: 20px;
+    left: 120px;
+}
+.boto2 i{
+    font-size: 22px;
+}
+
+.boto3{
+    position: absolute;
+    top: 20px;
+    left: 180px;
+}

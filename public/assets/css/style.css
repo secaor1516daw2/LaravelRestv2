@@ -212,6 +212,10 @@ form div {
     margin-left: 10px;
 }
 
+.cook{
+    margin-left: 35px;
+}
+
 .lab label {
     padding-left: 15px;
     padding-right: 5px;
@@ -221,7 +225,7 @@ form div {
     color: #000;
     font-weight: bolder;
     font-family: Lobster;
-    margin-right: 167px;
+    margin-right: 90px;
     text-shadow: -2px -2px 1px #10100F, 2px 2px 0px #505055;
 }
 
@@ -233,10 +237,25 @@ form div {
 }
 
 .but{
-    margin-left: 30px;
+    margin-left: 70px;
 
 }
 
-.boto{
-    margin-top: 40px;
+.boto1{
+    position: absolute;
+    top: 90px;
+    left: 170px;
+}
+
+.boto1 i{
+    font-size: 22px;
+}
+
+.boto2{
+    position: absolute;
+    top: 90px;
+    left: 220px;
+}
+.boto2 i{
+    font-size: 22px;
 }

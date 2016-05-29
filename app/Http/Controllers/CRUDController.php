@@ -55,6 +55,7 @@ class CRUDController extends Controller {
         return view('deletePlato',compact('nom','noms','desc','tip','preu'));
     }
 
+
     public function leer()
     {
         $noms = DB::table('plats')->lists('nom');
@@ -133,7 +134,7 @@ class CRUDController extends Controller {
         $hora = $date->toTimeString();
         $nTaula = $i;
         $total=0;
-
+        Session::put('nTaula', $nTaula);
         $quantitat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('quantitat');
         $nPlat = DB::table('comanda')->where('taula', '=', $nTaula )->lists('nPlat');
         $noms = DB::table('comanda')->where('taula', '=', $nTaula)->lists('nom');
@@ -145,6 +146,13 @@ class CRUDController extends Controller {
         }
 
         return view('cuenta',compact('nPlat','quantitat','noms','nTaula','import','preus','total','data','hora'));
+    }
+
+        public function borrarCuenta()
+    {
+        $nTaula = Session::pull('nTaula', 'default');
+        DB::table('comanda')->where('taula', '=', $nTaula)->delete();
+        return view('home');
     }
 
      public function pedir(Request $request)

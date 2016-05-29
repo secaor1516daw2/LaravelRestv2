@@ -28,10 +28,6 @@
 
 <body>
 <script type="text/javascript">
-    function goBack() {
-        window.history.back();
-    }
-
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -44,26 +40,10 @@
                 <i class="fa fa-lock" aria-hidden="true"></i>
             </a>
         </div>
-<!--
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <button type="button" class="btn btn-default confirmar" onclick="goBack()">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
--->
 <!--        <div class="wrapper center">-->
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 col-sm-offset-1">
-                <button type="button" class="btn btn-default boto" onclick="goBack()">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 col-sm-offset-4">
                 <img class="logo" src="../assets/img/logo.png" alt="Charlotte's Grill" />
             </div>
         </div>
@@ -71,6 +51,12 @@
 <!--        </div>-->
     </header>
 <div class="content">
+    <button type="button" class="btn btn-default boto1" onclick="location.href='/prueba'">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn btn-default boto2" onclick="location.href='/principal'">
+    <i class="fa fa-home" aria-hidden="true"></i>
+</button>
     <div class="container">
         <div class="row">
             <table class="table table-striped tabla">
